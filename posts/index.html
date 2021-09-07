@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>waibozie的罗里吧嗦</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.87.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="waibozie的罗里吧嗦" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="waibozie的罗里吧嗦" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://waibozie.github.io/posts/" />
+
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        waibozie的罗里吧嗦
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/hugo-simple-usage-ltu/" class="link black dim">
+        hugo使用入门（LTU，持续更新中）
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      这是一个简单的hugo使用入门总结，也是承载我后续持续输出博客的工具。我并不打算了解hugo的所有特性、细节，只要能支持本博客的相关需求就好，所以标题叫“使用入门”， 我会持续更新本博客用到的hugo能力。由衷地感谢hugo为我们贡献如此优秀的静态博客生产工具。
+一、安装与初步使用 根据hugo文档的指引，我使用homebrew完成了hugo的安装
+brew install hugo hugo的使用通过CLI方式完成， 使用到了如下命令：
+ 创建site  # 将博客创建到waibozie目录下 hugo new site waibozie  引入主题（theme）  cd waibozie # 初始化git， 将theme当成一个子module引入，方便后续更新 git init . git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke # 配置当前site使用的主题为ananke: 在config.toml文件中新增theme = &#39;ananke&#39;配置 vim config.toml  创建第一篇博客  hugo new posts/hugo-simple-usage.md  启动hugo server  # -D为告知hugo渲染draft类型的博客，默认情况下hugo会忽略draft hugo server -D 以LiveReload的方式编辑文档，保存后即可在 http://localhost:1313 中“实时”看到效果（hugo编译很快，几乎感觉不到延迟，这点真的赞）。
+二、使用hugo创建github pages 本小结总结hugo生成的静态网页文件托管到github并创建属于个人的github pages的过程
+  在github账户下创建仓库
+新增仓库：&lt;username&gt;.github.io, 其中username为github的用户名，如我的仓库叫waibozie.github.io
+  关联github pages仓库到博客内容仓库
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://waibozie.github.io/" >
+    &copy;  waibozie的罗里吧嗦 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
