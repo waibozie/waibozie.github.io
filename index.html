@@ -128,7 +128,38 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/hugo-simple-usage-ltu/" class="color-inherit dim link">
+          <a href="/posts/js/error-prone-keyword-var/" class="color-inherit dim link">
+            JavaScript易错的关键字var
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          易错的关键字var ”易错的关键字var“这个标题起得很唬人，其实是作者自己的感受；对于深耕于JavaScript的专家，可能并不这么看。这里并不想引战，这只是作为一个刚开始了解JavaScript的我的认识。
+首先需要说明的是var关键字的知识源，我通过MDN在线文字教程了解JavaScript，关于JavaScript var关键字的理解来源于: MDN var 描述。
+注：下述观点都是在JavaScript运行在非严格模式下; 样例程序结果在nodejs v16.6.1下运行得到, html样例在Chrome 92.0.4515.159 (Official Build) (x86_64) 下运行获得。
+易错点一： 重复声明 使用var重复声明一个变量不会引起错误，更甚至重复声明是不会丢失变量之前的值。
+var foo = &#34;declare 1st&#34;; var foo; // output: declare 1st console.log(foo); 这一点有悖于大部分编程语言（比如java、golang、C），但在不同的作用域的相同变量行为又不符合这个行为，变成了其它语言的变量覆盖：
+var foo = &#34;outside&#34;; function bar() { var foo; // output: undefined  console.log(foo); foo=&#34;modify inside&#34;; // output: &#34;modify inside&#34;  console.log(foo); } // output: &#34;outside&#34; console.log(foo); bar(); // output: &#34;outside&#34; console.log(foo); 即我们可以得到这样一个结论： 变量重复声明且不丢失值只能发生在相同作用域内， 不同作用域的同名变量仍然满足变量覆盖。
+造成这样行为差异的原因需要进一步了解，相信随着学习的深入后面能找到答案！
+易错点二： 不声明变量直接赋值的变量的作用域范围提升  &ldquo;当赋值给未声明的变量, 则执行赋值后, 该变量会被隐式地创建为全局变量&rdquo;
+        </div>
+          <a href="/posts/js/error-prone-keyword-var/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/hugo/hugo-simple-usage-ltu/" class="color-inherit dim link">
             hugo使用入门（LTU，持续更新中）
             </a>
         </h1>
@@ -142,7 +173,7 @@ brew install hugo hugo的使用通过CLI方式完成， 使用到了如下命令
 新增仓库：&lt;username&gt;.github.io, 其中username为github的用户名，如我的仓库叫waibozie.github.io
   关联github pages仓库到博客内容仓库
         </div>
-          <a href="/posts/hugo-simple-usage-ltu/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/hugo/hugo-simple-usage-ltu/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
