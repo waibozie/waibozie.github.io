@@ -101,6 +101,27 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="/posts/js/keyword-let/" class="link black dim">
+        关于let的两三事
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      关于let的两三事 一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
+var 声明语句声明一个变量，并可选地将其初始化为一个值。
+ 对比关键字let和关键字var的定义可以看出， let强调了块级作用域 的 本地变量, 那么下面尝试从 块级作用域 和 本地变量 度看看let带来了什么。
+块作用域 从一个的例子看区别：
+letFunc = function(){ { let foo = &#34;let block&#34;; } console.log(foo); } varFunc = function() { { var foo = &#34;var block&#34;; } console.log(foo); } // exception: Uncaught ReferenceError: foo is not defined letFunc(); // output: &#34;var block&#34; varFunc(); let变量的作用域被限制到了最近的代码块中，而var却能从函数内部的代码块“逃逸”出来，作用域变成函数级别。
+本地变量 let 不会给全局对象创建属性，而var会！
+var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#34; console.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="/posts/js/error-prone-keyword-var/" class="link black dim">
         JavaScript易错的关键字var
       </a>

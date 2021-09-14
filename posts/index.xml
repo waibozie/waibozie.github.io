@@ -6,7 +6,22 @@
     <description>Recent content in Posts on waibozie的罗里吧嗦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Sep 2021 23:07:28 +0800</lastBuildDate><atom:link href="https://waibozie.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Sep 2021 22:52:59 +0800</lastBuildDate><atom:link href="https://waibozie.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于let的两三事</title>
+      <link>https://waibozie.github.io/posts/js/keyword-let/</link>
+      <pubDate>Tue, 14 Sep 2021 22:52:59 +0800</pubDate>
+      
+      <guid>https://waibozie.github.io/posts/js/keyword-let/</guid>
+      <description>关于let的两三事 一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
+var 声明语句声明一个变量，并可选地将其初始化为一个值。
+ 对比关键字let和关键字var的定义可以看出， let强调了块级作用域 的 本地变量, 那么下面尝试从 块级作用域 和 本地变量 度看看let带来了什么。
+块作用域 从一个的例子看区别：
+letFunc = function(){ { let foo = &amp;#34;let block&amp;#34;; } console.log(foo); } varFunc = function() { { var foo = &amp;#34;var block&amp;#34;; } console.log(foo); } // exception: Uncaught ReferenceError: foo is not defined letFunc(); // output: &amp;#34;var block&amp;#34; varFunc(); let变量的作用域被限制到了最近的代码块中，而var却能从函数内部的代码块“逃逸”出来，作用域变成函数级别。
+本地变量 let 不会给全局对象创建属性，而var会！
+var varName = &amp;#34;foo&amp;#34;; let letName = &amp;#34;bar&amp;#34;; // output: &amp;#34;foo&amp;#34; console.</description>
+    </item>
+    
     <item>
       <title>JavaScript易错的关键字var</title>
       <link>https://waibozie.github.io/posts/js/error-prone-keyword-var/</link>
