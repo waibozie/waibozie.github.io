@@ -6,7 +6,7 @@
     
     <title>关于let的两三事 | waibozie的罗里吧嗦</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="关于let的两三事 一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
+    <meta name="description" content="一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
 var 声明语句声明一个变量，并可选地将其初始化为一个值。
  对比关键字let和关键字var的定义可以看出， let强调了块级作用域 的 本地变量, 那么下面尝试从 块级作用域 和 本地变量 度看看let带来了什么。
 块作用域 从一个的例子看区别：
@@ -33,7 +33,7 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
     
     
     <meta property="og:title" content="关于let的两三事" />
-<meta property="og:description" content="关于let的两三事 一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
+<meta property="og:description" content="一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
 var 声明语句声明一个变量，并可选地将其初始化为一个值。
  对比关键字let和关键字var的定义可以看出， let强调了块级作用域 的 本地变量, 那么下面尝试从 块级作用域 和 本地变量 度看看let带来了什么。
 块作用域 从一个的例子看区别：
@@ -46,7 +46,7 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
 <meta property="article:modified_time" content="2021-09-14T22:52:59+08:00" />
 
 <meta itemprop="name" content="关于let的两三事">
-<meta itemprop="description" content="关于let的两三事 一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
+<meta itemprop="description" content="一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
 var 声明语句声明一个变量，并可选地将其初始化为一个值。
  对比关键字let和关键字var的定义可以看出， let强调了块级作用域 的 本地变量, 那么下面尝试从 块级作用域 和 本地变量 度看看let带来了什么。
 块作用域 从一个的例子看区别：
@@ -54,10 +54,10 @@ letFunc = function(){ { let foo = &#34;let block&#34;; } console.log(foo); } var
 本地变量 let 不会给全局对象创建属性，而var会！
 var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#34; console."><meta itemprop="datePublished" content="2021-09-14T22:52:59+08:00" />
 <meta itemprop="dateModified" content="2021-09-14T22:52:59+08:00" />
-<meta itemprop="wordCount" content="187">
-<meta itemprop="keywords" content="js,fontend," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="186">
+<meta itemprop="keywords" content="JavaScript,Fontend," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="关于let的两三事"/>
-<meta name="twitter:description" content="关于let的两三事 一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
+<meta name="twitter:description" content="一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
 var 声明语句声明一个变量，并可选地将其初始化为一个值。
  对比关键字let和关键字var的定义可以看出， let强调了块级作用域 的 本地变量, 那么下面尝试从 块级作用域 和 本地变量 度看看let带来了什么。
 块作用域 从一个的例子看区别：
@@ -159,14 +159,13 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="关于let的两三事">关于let的两三事</h2>
-<h3 id="一从定义角度出发">一、从定义角度出发</h3>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="一从定义角度出发">一、从定义角度出发</h2>
 <blockquote>
 <p>let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。</p>
 <p>var 声明语句声明一个变量，并可选地将其初始化为一个值。</p>
 </blockquote>
 <p>对比<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let">关键字let</a>和<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/var">关键字var</a>的定义可以看出， <code>let</code>强调了<strong>块级作用域</strong> 的 <strong>本地变量</strong>, 那么下面尝试从 <code>块级作用域</code> 和 <code>本地变量</code> 度看看<code>let</code>带来了什么。</p>
-<h4 id="块作用域">块作用域</h4>
+<h3 id="块作用域">块作用域</h3>
 <p>从一个的例子看区别：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#a6e22e">letFunc</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){
     { 
@@ -188,7 +187,7 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
 <span style="color:#75715e">// output: &#34;var block&#34;
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">varFunc</span>();
 </code></pre></div><p><code>let</code>变量的作用域被限制到了最近的代码块中，而<code>var</code>却能从函数内部的代码块“逃逸”出来，作用域变成函数级别。</p>
-<h4 id="本地变量">本地变量</h4>
+<h3 id="本地变量">本地变量</h3>
 <p><code>let</code> 不会给全局对象创建属性，而<code>var</code>会！</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JavaScript" data-lang="JavaScript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">varName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foo&#34;</span>;
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">letName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bar&#34;</span>;
@@ -197,7 +196,7 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
 <span style="color:#75715e">// undefined
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">letName</span>);
 </code></pre></div><p>这点和隐式全局变量（未使用关键字<code>var</code> 或 <code>let</code>直接创建的变量）是一样的， 隐式变量也会给全局对象添加属性。</p>
-<h3 id="二从初始化时间点出发">二、从初始化时间点出发</h3>
+<h2 id="二从初始化时间点出发">二、从初始化时间点出发</h2>
 <blockquote>
 <p>与通过  var 声明的有初始化值 undefined 的变量不同，通过 let 声明的变量直到它们的定义被执行时才初始化。</p>
 </blockquote>
@@ -234,7 +233,7 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
 </code></pre></div><p>if语句块内部，foo被认为是<code>let</code>变量，声明+赋值表达式 执行顺序为： 赋值表达式先执行，声明后执行。 赋值表达式中使用了还未什么的变量导致引用错误。</p>
 <h2 id="三结束语">三、结束语</h2>
 <blockquote>
-<p>&ldquo;简单说两句“ —— 往往不止两句</p>
+<p>&ldquo;简单说两句” —— 往往不止两句</p>
 </blockquote>
 <p>说好的两三事，好像说得已经超过了</p>
 <p>最后贴上 <code>let</code>引入的原因和相关背景在StackOverflow讨论作为结束：
@@ -242,11 +241,11 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
 <ul class="pa0">
   
    <li class="list">
-     <a href="/tags/js" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">js</a>
+     <a href="/tags/javascript" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">JavaScript</a>
    </li>
   
    <li class="list">
-     <a href="/tags/fontend" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">fontend</a>
+     <a href="/tags/fontend" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Fontend</a>
    </li>
   
 </ul>
@@ -260,6 +259,17 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
 
 
 
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/js/error-prone-keyword-var/">易错的关键字var</a>
+        </li>
+	    
+    </ul>
+</div>
 
 </aside>
 

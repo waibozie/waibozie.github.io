@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>fontend | waibozie的罗里吧嗦</title>
+    <title>Fontend | waibozie的罗里吧嗦</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="">
     <meta name="generator" content="Hugo 0.87.0" />
@@ -31,14 +31,14 @@
       
     
     
-    <meta property="og:title" content="fontend" />
+    <meta property="og:title" content="Fontend" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://waibozie.github.io/tags/fontend/" />
 
-<meta itemprop="name" content="fontend">
+<meta itemprop="name" content="Fontend">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="fontend"/>
+<meta name="twitter:title" content="Fontend"/>
 <meta name="twitter:description" content=""/>
 
 	
@@ -83,7 +83,7 @@
 
       <div class="tc-l pv3 ph3 ph4-ns">
         <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          fontend
+          Fontend
         </h1>
         
       </div>
@@ -95,7 +95,7 @@
       
   <article class="cf pa3 pa4-m pa4-l">
     <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links nested-img mid-gray">
-      <p>Below you will find pages that utilize the taxonomy term “fontend”</p>
+      <p>Below you will find pages that utilize the taxonomy term “Fontend”</p>
     </div>
   </article>
   <div class="mw8 center">    
@@ -111,13 +111,37 @@
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      关于let的两三事 一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
+      一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
 var 声明语句声明一个变量，并可选地将其初始化为一个值。
  对比关键字let和关键字var的定义可以看出， let强调了块级作用域 的 本地变量, 那么下面尝试从 块级作用域 和 本地变量 度看看let带来了什么。
 块作用域 从一个的例子看区别：
 letFunc = function(){ { let foo = &#34;let block&#34;; } console.log(foo); } varFunc = function() { { var foo = &#34;var block&#34;; } console.log(foo); } // exception: Uncaught ReferenceError: foo is not defined letFunc(); // output: &#34;var block&#34; varFunc(); let变量的作用域被限制到了最近的代码块中，而var却能从函数内部的代码块“逃逸”出来，作用域变成函数级别。
 本地变量 let 不会给全局对象创建属性，而var会！
 var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#34; console.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/js/error-prone-keyword-var/" class="link black dim">
+        易错的关键字var
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      ”易错的关键字var“这个标题起得很唬人，其实是作者自己的感受；对于深耕于JavaScript的专家，可能并不这么看。这里并不想引战，这只是作为一个刚开始了解JavaScript的我的认识。
+首先需要说明的是var关键字的知识源，我通过MDN在线文字教程了解JavaScript，关于JavaScript var关键字的理解来源于: MDN var 描述。
+注：下述观点都是在JavaScript运行在非严格模式下; 样例程序结果在nodejs v16.6.1下运行得到, html样例在Chrome 92.0.4515.159 (Official Build) (x86_64) 下运行获得。
+易错点一： 重复声明 使用var重复声明一个变量不会引起错误，更甚至重复声明是不会丢失变量之前的值。
+var foo = &#34;declare 1st&#34;; var foo; // output: declare 1st console.log(foo); 这一点有悖于大部分编程语言（比如java、golang、C），但在不同的作用域的相同变量行为又不符合这个行为，变成了其它语言的变量覆盖：
+var foo = &#34;outside&#34;; function bar() { var foo; // output: undefined  console.log(foo); foo=&#34;modify inside&#34;; // output: &#34;modify inside&#34;  console.log(foo); } // output: &#34;outside&#34; console.log(foo); bar(); // output: &#34;outside&#34; console.log(foo); 即我们可以得到这样一个结论： 变量重复声明且不丢失值只能发生在相同作用域内， 不同作用域的同名变量仍然满足变量覆盖。
+造成这样行为差异的原因需要进一步了解，相信随着学习的深入后面能找到答案！
+易错点二： 不声明变量直接赋值的变量的作用域范围提升  &ldquo;当赋值给未声明的变量, 则执行赋值后, 该变量会被隐式地创建为全局变量&rdquo;
     </div>
   </div>
 </div>

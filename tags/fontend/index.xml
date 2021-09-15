@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>fontend on waibozie的罗里吧嗦</title>
+    <title>Fontend on waibozie的罗里吧嗦</title>
     <link>https://waibozie.github.io/tags/fontend/</link>
-    <description>Recent content in fontend on waibozie的罗里吧嗦</description>
+    <description>Recent content in Fontend on waibozie的罗里吧嗦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 Sep 2021 22:52:59 +0800</lastBuildDate><atom:link href="https://waibozie.github.io/tags/fontend/index.xml" rel="self" type="application/rss+xml" />
@@ -13,13 +13,29 @@
       <pubDate>Tue, 14 Sep 2021 22:52:59 +0800</pubDate>
       
       <guid>https://waibozie.github.io/posts/js/keyword-let/</guid>
-      <description>关于let的两三事 一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
+      <description>一、从定义角度出发  let 语句声明一个块级作用域的本地变量，并且可选的将其初始化为一个值。
 var 声明语句声明一个变量，并可选地将其初始化为一个值。
  对比关键字let和关键字var的定义可以看出， let强调了块级作用域 的 本地变量, 那么下面尝试从 块级作用域 和 本地变量 度看看let带来了什么。
 块作用域 从一个的例子看区别：
 letFunc = function(){ { let foo = &amp;#34;let block&amp;#34;; } console.log(foo); } varFunc = function() { { var foo = &amp;#34;var block&amp;#34;; } console.log(foo); } // exception: Uncaught ReferenceError: foo is not defined letFunc(); // output: &amp;#34;var block&amp;#34; varFunc(); let变量的作用域被限制到了最近的代码块中，而var却能从函数内部的代码块“逃逸”出来，作用域变成函数级别。
 本地变量 let 不会给全局对象创建属性，而var会！
 var varName = &amp;#34;foo&amp;#34;; let letName = &amp;#34;bar&amp;#34;; // output: &amp;#34;foo&amp;#34; console.</description>
+    </item>
+    
+    <item>
+      <title>易错的关键字var</title>
+      <link>https://waibozie.github.io/posts/js/error-prone-keyword-var/</link>
+      <pubDate>Thu, 09 Sep 2021 23:07:28 +0800</pubDate>
+      
+      <guid>https://waibozie.github.io/posts/js/error-prone-keyword-var/</guid>
+      <description>”易错的关键字var“这个标题起得很唬人，其实是作者自己的感受；对于深耕于JavaScript的专家，可能并不这么看。这里并不想引战，这只是作为一个刚开始了解JavaScript的我的认识。
+首先需要说明的是var关键字的知识源，我通过MDN在线文字教程了解JavaScript，关于JavaScript var关键字的理解来源于: MDN var 描述。
+注：下述观点都是在JavaScript运行在非严格模式下; 样例程序结果在nodejs v16.6.1下运行得到, html样例在Chrome 92.0.4515.159 (Official Build) (x86_64) 下运行获得。
+易错点一： 重复声明 使用var重复声明一个变量不会引起错误，更甚至重复声明是不会丢失变量之前的值。
+var foo = &amp;#34;declare 1st&amp;#34;; var foo; // output: declare 1st console.log(foo); 这一点有悖于大部分编程语言（比如java、golang、C），但在不同的作用域的相同变量行为又不符合这个行为，变成了其它语言的变量覆盖：
+var foo = &amp;#34;outside&amp;#34;; function bar() { var foo; // output: undefined  console.log(foo); foo=&amp;#34;modify inside&amp;#34;; // output: &amp;#34;modify inside&amp;#34;  console.log(foo); } // output: &amp;#34;outside&amp;#34; console.log(foo); bar(); // output: &amp;#34;outside&amp;#34; console.log(foo); 即我们可以得到这样一个结论： 变量重复声明且不丢失值只能发生在相同作用域内， 不同作用域的同名变量仍然满足变量覆盖。
+造成这样行为差异的原因需要进一步了解，相信随着学习的深入后面能找到答案！
+易错点二： 不声明变量直接赋值的变量的作用域范围提升  &amp;ldquo;当赋值给未声明的变量, 则执行赋值后, 该变量会被隐式地创建为全局变量&amp;rdquo;</description>
     </item>
     
   </channel>
