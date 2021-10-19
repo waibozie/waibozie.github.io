@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Start on Minikube | waibozie的罗里吧嗦</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Minikube  reference: https://minikube.sigs.k8s.io/docs/start/
+ 安装和启动 # 安装 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb sudo dpkg -i minikube_latest_amd64.deb # 启动 minikube start 在第一次启动minikube start过程中不小心打断了，再重试怎么都下载不了镜像，似乎是进入了某种异常状态，通过删除用户home目录下的.minikube文件件重试可以重置。
+验证 我的minikube安装在一台闲置的linux笔记本上， 需要通过笔记本的ip访问，kubectl proxy默认监听在127.0.0.1回环地址上，所以需要启动一个非回环口上的代理。
+kubectl get po -A # 安装dashboard组件 minikube dashboard # 启动访问代理 kubectl proxy --address=&#39;&lt;ip&gt;&#39; --accept-hosts=&#39;^.*&#39; 访问[http://k56cb.waibozie.me:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/]
+个人理解 （1）minikube采用了docker in docker的方式部署本地版本的K8s， 运行起来后只能在宿主机上看到一个kicbase容器
+waibozie@k56cb:~$ docker ps CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 9a9c7f55d673 kicbase/stable:v0.0.27 &quot;/usr/local/bin/entr…&quot; 2 days ago Up 2 days 127.0.0.1:49157-&gt;22/tcp, 127.0.0.1:49156-&gt;2376/tcp, 127.0.0.1:49155-&gt;5000/tcp, 127.0.0.1:49154-&gt;8443/tcp, 127.0.0.1:49153-&gt;32443/tcp minikube 在kicbase容器里能看到运行的kubelet进程">
+    <meta name="generator" content="Hugo 0.87.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Start on Minikube" />
+<meta property="og:description" content="Minikube  reference: https://minikube.sigs.k8s.io/docs/start/
+ 安装和启动 # 安装 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb sudo dpkg -i minikube_latest_amd64.deb # 启动 minikube start 在第一次启动minikube start过程中不小心打断了，再重试怎么都下载不了镜像，似乎是进入了某种异常状态，通过删除用户home目录下的.minikube文件件重试可以重置。
+验证 我的minikube安装在一台闲置的linux笔记本上， 需要通过笔记本的ip访问，kubectl proxy默认监听在127.0.0.1回环地址上，所以需要启动一个非回环口上的代理。
+kubectl get po -A # 安装dashboard组件 minikube dashboard # 启动访问代理 kubectl proxy --address=&#39;&lt;ip&gt;&#39; --accept-hosts=&#39;^.*&#39; 访问[http://k56cb.waibozie.me:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/]
+个人理解 （1）minikube采用了docker in docker的方式部署本地版本的K8s， 运行起来后只能在宿主机上看到一个kicbase容器
+waibozie@k56cb:~$ docker ps CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 9a9c7f55d673 kicbase/stable:v0.0.27 &quot;/usr/local/bin/entr…&quot; 2 days ago Up 2 days 127.0.0.1:49157-&gt;22/tcp, 127.0.0.1:49156-&gt;2376/tcp, 127.0.0.1:49155-&gt;5000/tcp, 127.0.0.1:49154-&gt;8443/tcp, 127.0.0.1:49153-&gt;32443/tcp minikube 在kicbase容器里能看到运行的kubelet进程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://waibozie.github.io/posts/kubernetes/start-on-minikube/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-12T22:16:51+08:00" />
+<meta property="article:modified_time" content="2021-10-12T22:16:51+08:00" />
+
+<meta itemprop="name" content="Start on Minikube">
+<meta itemprop="description" content="Minikube  reference: https://minikube.sigs.k8s.io/docs/start/
+ 安装和启动 # 安装 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb sudo dpkg -i minikube_latest_amd64.deb # 启动 minikube start 在第一次启动minikube start过程中不小心打断了，再重试怎么都下载不了镜像，似乎是进入了某种异常状态，通过删除用户home目录下的.minikube文件件重试可以重置。
+验证 我的minikube安装在一台闲置的linux笔记本上， 需要通过笔记本的ip访问，kubectl proxy默认监听在127.0.0.1回环地址上，所以需要启动一个非回环口上的代理。
+kubectl get po -A # 安装dashboard组件 minikube dashboard # 启动访问代理 kubectl proxy --address=&#39;&lt;ip&gt;&#39; --accept-hosts=&#39;^.*&#39; 访问[http://k56cb.waibozie.me:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/]
+个人理解 （1）minikube采用了docker in docker的方式部署本地版本的K8s， 运行起来后只能在宿主机上看到一个kicbase容器
+waibozie@k56cb:~$ docker ps CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 9a9c7f55d673 kicbase/stable:v0.0.27 &quot;/usr/local/bin/entr…&quot; 2 days ago Up 2 days 127.0.0.1:49157-&gt;22/tcp, 127.0.0.1:49156-&gt;2376/tcp, 127.0.0.1:49155-&gt;5000/tcp, 127.0.0.1:49154-&gt;8443/tcp, 127.0.0.1:49153-&gt;32443/tcp minikube 在kicbase容器里能看到运行的kubelet进程"><meta itemprop="datePublished" content="2021-10-12T22:16:51+08:00" />
+<meta itemprop="dateModified" content="2021-10-12T22:16:51+08:00" />
+<meta itemprop="wordCount" content="411">
+<meta itemprop="keywords" content="Kubernates," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Start on Minikube"/>
+<meta name="twitter:description" content="Minikube  reference: https://minikube.sigs.k8s.io/docs/start/
+ 安装和启动 # 安装 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb sudo dpkg -i minikube_latest_amd64.deb # 启动 minikube start 在第一次启动minikube start过程中不小心打断了，再重试怎么都下载不了镜像，似乎是进入了某种异常状态，通过删除用户home目录下的.minikube文件件重试可以重置。
+验证 我的minikube安装在一台闲置的linux笔记本上， 需要通过笔记本的ip访问，kubectl proxy默认监听在127.0.0.1回环地址上，所以需要启动一个非回环口上的代理。
+kubectl get po -A # 安装dashboard组件 minikube dashboard # 启动访问代理 kubectl proxy --address=&#39;&lt;ip&gt;&#39; --accept-hosts=&#39;^.*&#39; 访问[http://k56cb.waibozie.me:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/]
+个人理解 （1）minikube采用了docker in docker的方式部署本地版本的K8s， 运行起来后只能在宿主机上看到一个kicbase容器
+waibozie@k56cb:~$ docker ps CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 9a9c7f55d673 kicbase/stable:v0.0.27 &quot;/usr/local/bin/entr…&quot; 2 days ago Up 2 days 127.0.0.1:49157-&gt;22/tcp, 127.0.0.1:49156-&gt;2376/tcp, 127.0.0.1:49155-&gt;5000/tcp, 127.0.0.1:49154-&gt;8443/tcp, 127.0.0.1:49153-&gt;32443/tcp minikube 在kicbase容器里能看到运行的kubelet进程"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        waibozie的罗里吧嗦
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://waibozie.github.io/posts/kubernetes/start-on-minikube/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://waibozie.github.io/posts/kubernetes/start-on-minikube/&amp;text=Start%20on%20Minikube" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://waibozie.github.io/posts/kubernetes/start-on-minikube/&amp;title=Start%20on%20Minikube" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Start on Minikube</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-10-12T22:16:51+08:00">October 12, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="minikube">Minikube</h1>
+<blockquote>
+<p>reference: <a href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a></p>
+</blockquote>
+<h2 id="安装和启动">安装和启动</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 安装</span>
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+sudo dpkg -i minikube_latest_amd64.deb
+
+<span style="color:#75715e"># 启动</span>
+minikube start
+</code></pre></div><p>在第一次启动<code>minikube start</code>过程中不小心打断了，再重试怎么都下载不了镜像，似乎是进入了某种异常状态，通过删除用户home目录下的.minikube文件件重试可以重置。</p>
+<h2 id="验证">验证</h2>
+<p>我的minikube安装在一台闲置的linux笔记本上， 需要通过笔记本的ip访问，kubectl proxy默认监听在127.0.0.1回环地址上，所以需要启动一个非回环口上的代理。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl get po -A
+
+<span style="color:#75715e"># 安装dashboard组件</span>
+minikube dashboard 
+
+<span style="color:#75715e"># 启动访问代理</span>
+kubectl proxy --address<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&lt;ip&gt;&#39;</span> --accept-hosts<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;^.*&#39;</span>
+</code></pre></div><p>访问[http://k56cb.waibozie.me:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/]</p>
+<h2 id="个人理解">个人理解</h2>
+<p>（1）minikube采用了docker in docker的方式部署本地版本的K8s， 运行起来后只能在宿主机上看到一个kicbase容器</p>
+<pre><code>waibozie@k56cb:~$ docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED      STATUS      PORTS                                                                                                                                  NAMES
+9a9c7f55d673   kicbase/stable:v0.0.27   &quot;/usr/local/bin/entr…&quot;   2 days ago   Up 2 days   127.0.0.1:49157-&gt;22/tcp, 127.0.0.1:49156-&gt;2376/tcp, 127.0.0.1:49155-&gt;5000/tcp, 127.0.0.1:49154-&gt;8443/tcp, 127.0.0.1:49153-&gt;32443/tcp   minikube
+</code></pre><p>在kicbase容器里能看到运行的kubelet进程</p>
+<pre><code>root        2284       1  8 Oct17 ?        04:49:00 /var/lib/minikube/binaries/v1.22.2/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --config=/var/lib/kubelet/config.yaml --container-runtime=docker --hostname-override=minikube --kubeconfig=/etc/kubernetes/kubelet.conf --node-ip=192.168.49.2
+</code></pre><p>以及运行在kicbase容器中的K8s关键容器</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># docker ps</span>
+CONTAINER ID   IMAGE                  COMMAND                  CREATED      STATUS      PORTS     NAMES
+0de208db8592   e1482a24335a           <span style="color:#e6db74">&#34;/dashboard --insecu…&#34;</span>   <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_kubernetes-dashboard_kubernetes-dashboard-654cf69797-2c82f_kubernetes-dashboard_37761d54-143e-4201-a864-e655f484afe5_1
+477bc8a2b31c   6e38f40d628d           <span style="color:#e6db74">&#34;/storage-provisioner&#34;</span>   <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_storage-provisioner_storage-provisioner_kube-system_d5bdd9e3-fab8-4c9c-8440-44ba7f4da221_1
+97f3a391f286   7801cfc6d5c0           <span style="color:#e6db74">&#34;/metrics-sidecar&#34;</span>       <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_dashboard-metrics-scraper_dashboard-metrics-scraper-5594458c94-52xpc_kubernetes-dashboard_be895e5c-62b2-409b-bb5b-a10a6f5b3593_0
+b0caec2f5566   873127efbc8a           <span style="color:#e6db74">&#34;/usr/local/bin/kube…&#34;</span>   <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_kube-proxy_kube-proxy-2svfj_kube-system_3dfdfc23-efb5-48c3-a69c-9e4630812a5a_0
+498c6eb0870c   k8s.gcr.io/pause:3.5   <span style="color:#e6db74">&#34;/pause&#34;</span>                 <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_POD_dashboard-metrics-scraper-5594458c94-52xpc_kubernetes-dashboard_be895e5c-62b2-409b-bb5b-a10a6f5b3593_0
+cd28788b0151   8d147537fb7d           <span style="color:#e6db74">&#34;/coredns -conf /etc…&#34;</span>   <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_coredns_coredns-78fcd69978-8qj6k_kube-system_5b31f117-2003-4b90-9c22-3ae167c1851c_0
+72a526ba15f0   k8s.gcr.io/pause:3.5   <span style="color:#e6db74">&#34;/pause&#34;</span>                 <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_POD_kube-proxy-2svfj_kube-system_3dfdfc23-efb5-48c3-a69c-9e4630812a5a_0
+f6030e0d5185   k8s.gcr.io/pause:3.5   <span style="color:#e6db74">&#34;/pause&#34;</span>                 <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_POD_kubernetes-dashboard-654cf69797-2c82f_kubernetes-dashboard_37761d54-143e-4201-a864-e655f484afe5_0
+da0f0a09c5ca   k8s.gcr.io/pause:3.5   <span style="color:#e6db74">&#34;/pause&#34;</span>                 <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_POD_coredns-78fcd69978-8qj6k_kube-system_5b31f117-2003-4b90-9c22-3ae167c1851c_0
+c2ac7077f685   k8s.gcr.io/pause:3.5   <span style="color:#e6db74">&#34;/pause&#34;</span>                 <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_POD_storage-provisioner_kube-system_d5bdd9e3-fab8-4c9c-8440-44ba7f4da221_0
+85c7877bc7a5   b51ddc1014b0           <span style="color:#e6db74">&#34;kube-scheduler --au…&#34;</span>   <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_kube-scheduler_kube-scheduler-minikube_kube-system_97bca4cd66281ad2157a6a68956c4fa5_0
+bd4122c06d97   <span style="color:#ae81ff">004811815584</span>           <span style="color:#e6db74">&#34;etcd --advertise-cl…&#34;</span>   <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_etcd_etcd-minikube_kube-system_08a3871e1baa241b73e5af01a6d01393_0
+8d96391f6e62   e64579b7d886           <span style="color:#e6db74">&#34;kube-apiserver --ad…&#34;</span>   <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_kube-apiserver_kube-apiserver-minikube_kube-system_fe49842e48a1ca6bac988e8ba88ecc53_0
+4be91dba8d82   5425bcbd23c5           <span style="color:#e6db74">&#34;kube-controller-man…&#34;</span>   <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_kube-controller-manager_kube-controller-manager-minikube_kube-system_4787f37e041fd890d5499a8863561e5f_0
+2774b157ce1e   k8s.gcr.io/pause:3.5   <span style="color:#e6db74">&#34;/pause&#34;</span>                 <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_POD_kube-scheduler-minikube_kube-system_97bca4cd66281ad2157a6a68956c4fa5_0
+821051fa5e1a   k8s.gcr.io/pause:3.5   <span style="color:#e6db74">&#34;/pause&#34;</span>                 <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_POD_kube-apiserver-minikube_kube-system_fe49842e48a1ca6bac988e8ba88ecc53_0
+a8be72f31e75   k8s.gcr.io/pause:3.5   <span style="color:#e6db74">&#34;/pause&#34;</span>                 <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_POD_etcd-minikube_kube-system_08a3871e1baa241b73e5af01a6d01393_0
+9141727314d5   k8s.gcr.io/pause:3.5   <span style="color:#e6db74">&#34;/pause&#34;</span>                 <span style="color:#ae81ff">2</span> days ago   Up <span style="color:#ae81ff">2</span> days             k8s_POD_kube-controller-manager-minikube_kube-system_4787f37e041fd890d5499a8863561e5f_0
+</code></pre></div><p>（2）minikube通过给宿主机的kubectl配置访问kicbase的8443端口来访问apiserver，达成宿主机kubectl命令能正常工作的目的， 配置文件在~/.kube/config</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">waibozie@k56cb:~/.kube$ cat config
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /home/waibozie/.minikube/ca.crt
+    extensions:
+    - extension:
+        last-update: Sun, <span style="color:#ae81ff">17</span> Oct <span style="color:#ae81ff">2021</span> 03:54:19 UTC
+        provider: minikube.sigs.k8s.io
+        version: v1.23.2
+      name: cluster_info
+    server: https://192.168.49.2:8443
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    extensions:
+    - extension:
+        last-update: Sun, <span style="color:#ae81ff">17</span> Oct <span style="color:#ae81ff">2021</span> 03:54:19 UTC
+        provider: minikube.sigs.k8s.io
+        version: v1.23.2
+      name: context_info
+    namespace: default
+    user: minikube
+  name: minikube
+current-context: minikube
+kind: Config
+preferences: <span style="color:#f92672">{}</span>
+users:
+- name: minikube
+  user:
+    client-certificate: /home/waibozie/.minikube/profiles/minikube/client.crt
+    client-key: /home/waibozie/.minikube/profiles/minikube/client.key
+</code></pre></div><pre><code>waibozie@k56cb:~$ kubectl get pod -A
+NAMESPACE              NAME                                         READY   STATUS    RESTARTS        AGE
+kube-system            coredns-78fcd69978-8qj6k                     1/1     Running   0               2d10h
+kube-system            etcd-minikube                                1/1     Running   0               2d10h
+kube-system            kube-apiserver-minikube                      1/1     Running   0               2d10h
+kube-system            kube-controller-manager-minikube             1/1     Running   0               2d10h
+kube-system            kube-proxy-2svfj                             1/1     Running   0               2d10h
+kube-system            kube-scheduler-minikube                      1/1     Running   0               2d10h
+kube-system            storage-provisioner                          1/1     Running   1 (2d10h ago)   2d10h
+</code></pre><ul class="pa0">
+  
+   <li class="list">
+     <a href="/tags/kubernates" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Kubernates</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://waibozie.github.io/" >
+    &copy;  waibozie的罗里吧嗦 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

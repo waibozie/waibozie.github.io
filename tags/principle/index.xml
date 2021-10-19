@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>principle on waibozie的罗里吧嗦</title>
+    <link>https://waibozie.github.io/tags/principle/</link>
+    <description>Recent content in principle on waibozie的罗里吧嗦</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Sep 2021 23:08:19 +0800</lastBuildDate><atom:link href="https://waibozie.github.io/tags/principle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从Happen Before看竞态条件</title>
+      <link>https://waibozie.github.io/posts/principle/see-race-conditions-from-heppend-before/</link>
+      <pubDate>Wed, 15 Sep 2021 23:08:19 +0800</pubDate>
+      
+      <guid>https://waibozie.github.io/posts/principle/see-race-conditions-from-heppend-before/</guid>
+      <description>最近在公司听了一场关于go语言中竞态条件的技术分享，其中讲到语言内存模型的“Happen Before”让我印象深刻。作为听了演讲内容的延伸，我决定梳理一下相关概念和背景，所以有了这篇文章，尝试去了解那些公共的编程基本理论(principle)
+我打算把 编程基本理论(principle) 做成一个持续更新（LTU）的系列，从这个系列中了解本质。
+一、Happen Before是什么 </description>
+    </item>
+    
+  </channel>
+</rss>
