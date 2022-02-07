@@ -12,7 +12,7 @@
 kubectl get po -A # 安装dashboard组件 minikube dashboard # 启动访问代理 kubectl proxy --address=&#39;&lt;ip&gt;&#39; --accept-hosts=&#39;^.*&#39; 访问[http://k56cb.waibozie.me:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/]
 个人理解 （1）minikube采用了docker in docker的方式部署本地版本的K8s， 运行起来后只能在宿主机上看到一个kicbase容器
 waibozie@k56cb:~$ docker ps CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 9a9c7f55d673 kicbase/stable:v0.0.27 &quot;/usr/local/bin/entr…&quot; 2 days ago Up 2 days 127.0.0.1:49157-&gt;22/tcp, 127.0.0.1:49156-&gt;2376/tcp, 127.0.0.1:49155-&gt;5000/tcp, 127.0.0.1:49154-&gt;8443/tcp, 127.0.0.1:49153-&gt;32443/tcp minikube 在kicbase容器里能看到运行的kubelet进程">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.92.1" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -179,11 +179,11 @@ kubectl proxy --address<span style="color:#f92672">=</span><span style="color:#e
 </code></pre></div><p>访问[http://k56cb.waibozie.me:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/]</p>
 <h2 id="个人理解">个人理解</h2>
 <p>（1）minikube采用了docker in docker的方式部署本地版本的K8s， 运行起来后只能在宿主机上看到一个kicbase容器</p>
-<pre><code>waibozie@k56cb:~$ docker ps
+<pre tabindex="0"><code>waibozie@k56cb:~$ docker ps
 CONTAINER ID   IMAGE                    COMMAND                  CREATED      STATUS      PORTS                                                                                                                                  NAMES
 9a9c7f55d673   kicbase/stable:v0.0.27   &quot;/usr/local/bin/entr…&quot;   2 days ago   Up 2 days   127.0.0.1:49157-&gt;22/tcp, 127.0.0.1:49156-&gt;2376/tcp, 127.0.0.1:49155-&gt;5000/tcp, 127.0.0.1:49154-&gt;8443/tcp, 127.0.0.1:49153-&gt;32443/tcp   minikube
 </code></pre><p>在kicbase容器里能看到运行的kubelet进程</p>
-<pre><code>root        2284       1  8 Oct17 ?        04:49:00 /var/lib/minikube/binaries/v1.22.2/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --config=/var/lib/kubelet/config.yaml --container-runtime=docker --hostname-override=minikube --kubeconfig=/etc/kubernetes/kubelet.conf --node-ip=192.168.49.2
+<pre tabindex="0"><code>root        2284       1  8 Oct17 ?        04:49:00 /var/lib/minikube/binaries/v1.22.2/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --config=/var/lib/kubelet/config.yaml --container-runtime=docker --hostname-override=minikube --kubeconfig=/etc/kubernetes/kubelet.conf --node-ip=192.168.49.2
 </code></pre><p>以及运行在kicbase容器中的K8s关键容器</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># docker ps</span>
 CONTAINER ID   IMAGE                  COMMAND                  CREATED      STATUS      PORTS     NAMES
@@ -239,7 +239,7 @@ users:
   user:
     client-certificate: /home/waibozie/.minikube/profiles/minikube/client.crt
     client-key: /home/waibozie/.minikube/profiles/minikube/client.key
-</code></pre></div><pre><code>waibozie@k56cb:~$ kubectl get pod -A
+</code></pre></div><pre tabindex="0"><code>waibozie@k56cb:~$ kubectl get pod -A
 NAMESPACE              NAME                                         READY   STATUS    RESTARTS        AGE
 kube-system            coredns-78fcd69978-8qj6k                     1/1     Running   0               2d10h
 kube-system            etcd-minikube                                1/1     Running   0               2d10h
@@ -271,11 +271,11 @@ kube-system            storage-provisioner                          1/1     Runn
   </article>
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+    <footer class=" bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://waibozie.github.io/" >
-    &copy;  waibozie的罗里吧嗦 2021 
-  </a>
+    <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://waibozie.github.io/">
+      &copy;  waibozie的罗里吧嗦 2022 
+    </a>
     <div>
 
 
@@ -293,7 +293,17 @@ kube-system            storage-provisioner                          1/1     Runn
 
 </div>
   </div>
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c40fee2f11dedd13f56d02a6aa48907d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
 </footer>
-
   </body>
 </html>

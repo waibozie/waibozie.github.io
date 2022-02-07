@@ -13,7 +13,7 @@ var 声明语句声明一个变量，并可选地将其初始化为一个值。
 letFunc = function(){ { let foo = &#34;let block&#34;; } console.log(foo); } varFunc = function() { { var foo = &#34;var block&#34;; } console.log(foo); } // exception: Uncaught ReferenceError: foo is not defined letFunc(); // output: &#34;var block&#34; varFunc(); let变量的作用域被限制到了最近的代码块中，而var却能从函数内部的代码块“逃逸”出来，作用域变成函数级别。
 本地变量 let 不会给全局对象创建属性，而var会！
 var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#34; console.">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.92.1" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -276,11 +276,11 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
   </article>
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+    <footer class=" bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://waibozie.github.io/" >
-    &copy;  waibozie的罗里吧嗦 2021 
-  </a>
+    <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://waibozie.github.io/">
+      &copy;  waibozie的罗里吧嗦 2022 
+    </a>
     <div>
 
 
@@ -298,7 +298,17 @@ var varName = &#34;foo&#34;; let letName = &#34;bar&#34;; // output: &#34;foo&#3
 
 </div>
   </div>
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c40fee2f11dedd13f56d02a6aa48907d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
 </footer>
-
   </body>
 </html>

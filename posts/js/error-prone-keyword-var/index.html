@@ -14,7 +14,7 @@ var foo = &#34;declare 1st&#34;; var foo; // output: declare 1st console.log(foo
 var foo = &#34;outside&#34;; function bar() { var foo; // output: undefined  console.log(foo); foo=&#34;modify inside&#34;; // output: &#34;modify inside&#34;  console.log(foo); } // output: &#34;outside&#34; console.log(foo); bar(); // output: &#34;outside&#34; console.log(foo); 即我们可以得到这样一个结论： 变量重复声明且不丢失值只能发生在相同作用域内， 不同作用域的同名变量仍然满足变量覆盖。
 造成这样行为差异的原因需要进一步了解，相信随着学习的深入后面能找到答案！
 易错点二： 不声明变量直接赋值的变量的作用域范围提升  &ldquo;当赋值给未声明的变量, 则执行赋值后, 该变量会被隐式地创建为全局变量&rdquo;">
-    <meta name="generator" content="Hugo 0.87.0" />
+    <meta name="generator" content="Hugo 0.92.1" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -283,11 +283,11 @@ var foo = &#34;outside&#34;; function bar() { var foo; // output: undefined  con
   </article>
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+    <footer class=" bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://waibozie.github.io/" >
-    &copy;  waibozie的罗里吧嗦 2021 
-  </a>
+    <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://waibozie.github.io/">
+      &copy;  waibozie的罗里吧嗦 2022 
+    </a>
     <div>
 
 
@@ -305,7 +305,17 @@ var foo = &#34;outside&#34;; function bar() { var foo; // output: undefined  con
 
 </div>
   </div>
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c40fee2f11dedd13f56d02a6aa48907d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
 </footer>
-
   </body>
 </html>
